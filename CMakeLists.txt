@@ -11,16 +11,11 @@ find_package(Qt6 REQUIRED COMPONENTS Core Quick)
 add_library(lingmo-display SHARED
     src/main.cpp
 )
+target_compile_definitions(lingmo-display PRIVATE LINGMO_DISPLAY_LIBRARY)
 
 target_link_libraries(lingmo-display PUBLIC
     Qt6::Core
     Qt6::Quick
-)
-
-include(GenerateExportHeader)
-generate_export_header(lingmo-display
-    EXPORT_MACRO_NAME LINGMO_LINGMO_DISPLAY_EXPORT
-    EXPORT_FILE_NAME /export.h
 )
 
 install(TARGETS lingmo-display
